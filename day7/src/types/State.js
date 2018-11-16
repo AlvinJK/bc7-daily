@@ -7,5 +7,7 @@ type ToDoItem = {
 };
 
 export type State = {
+  inputText: string,
+  idCounter: number,
   todoItems: Array<ToDoItem>,
 };

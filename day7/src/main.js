@@ -10,7 +10,9 @@ global.emitEvent = (eventName: string, eventData?: mixed) => {
   if (eventHandler) {
     state = eventHandler(state, eventData);
   }
-  render();
+  if (eventName !== 'changeCurrentText') {
+    render();
+  }
 };
 
 function render() {
