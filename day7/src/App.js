@@ -1,7 +1,7 @@
 // @flow
-import type {State} from './types/State';
+import type {ToDoItem, State} from './types/State';
 
-function renderTodoItem(item) {
+function renderTodoItem(item: ToDoItem) {
   let content = item.isDone ? `<s>${item.content}</s>` : item.content;
   return `<li onClick="emitEvent('toggleDone', ${item.id})">${content}</li>`;
 }
@@ -19,4 +19,4 @@ function renderApp(state: State) {
   </ul>${renderInputText()}${renderSaveButton()}`;
 }
 
-export {renderApp};
+export {renderTodoItem, renderInputText, renderSaveButton, renderApp};

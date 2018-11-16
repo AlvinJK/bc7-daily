@@ -1,6 +1,6 @@
 // @flow
 
-type ToDoItem = {
+export type ToDoItem = {
   id: number,
   content: string,
   isDone: boolean,

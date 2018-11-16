@@ -32,7 +32,12 @@ let eventHandlers: EventHandlerObject = {
         content: oldState.inputText,
         isDone: false,
       };
-      return {...oldState, todoItems: [...oldState.todoItems, newItem]};
+      return {
+        ...oldState,
+        inputText: '',
+        idCounter: oldState.idCounter + 1,
+        todoItems: [...oldState.todoItems, newItem],
+      };
     }
     return oldState;
   },
