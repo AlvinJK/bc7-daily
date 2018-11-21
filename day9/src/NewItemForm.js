@@ -7,22 +7,17 @@ type Props = {
   inputText: string,
 };
 
-class NewItemForm extends Component<Props> {
-  render() {
-    let onChange = (event) => {
-      this.props.changeText(event.target.value);
-    };
-    let onSubmit = () => {
-      this.props.addItem();
-      this.props.changeText('');
-    };
-    return (
-      <div>
-        <input type="text" value={this.props.inputText} onChange={onChange} />
-        <button onClick={onSubmit}>Save</button>
-      </div>
-    );
-  }
+function NewItemForm(props: Props) {
+  let {inputText, changeText, addItem} = props;
+  let onChange = (event) => {
+    changeText(event.target.value);
+  };
+  return (
+    <div>
+      <input type="text" value={inputText} onChange={onChange} />
+      <button onClick={addItem}>Save</button>
+    </div>
+  );
 }
 
 export default NewItemForm;

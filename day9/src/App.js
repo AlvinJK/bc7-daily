@@ -4,7 +4,6 @@ import type {State} from './types/State';
 
 import TodoItem from './TodoItem';
 import NewItemForm from './NewItemForm';
-import SearchBox from './SearchBox';
 
 type Props = {};
 class App extends Component<Props, State> {
@@ -17,36 +16,32 @@ class App extends Component<Props, State> {
     inputText: '',
   };
   render() {
-    let {todoItems} = this.state;
-    //return <p>Hello {this.state.name}</p>;
+    let {todoItems, searchText} = this.state;
 
+    let lcSearchText = searchText.toString().toLowerCase();
+    let filteredTodoItems = todoItems.filter((item) => {
+      return item.content
+        .toString()
+        .toLowerCase()
+        .includes(lcSearchText);
+    });
     return (
       <div>
-        <SearchBox
-          searchText={this.state.searchText}
-          changeSearch={this._onSearchItem}
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchText}
+          onChange={this._onChangeSearch}
         />
         <ul>
-          {todoItems.map((item) => {
-            if (
-              item.content
-                .toLowerCase()
-                .includes(this.state.searchText.toLowerCase())
-              /*
-              item.content
-                .toLowerCase()
-                .indexOf(this.state.searchText.toLowerCase()) !== -1 ||
-              this.state.searchText === ''
-              */
-            ) {
-              return (
-                <TodoItem
-                  key={item.id}
-                  item={item}
-                  toggleDone={this._onToggleDone}
-                />
-              );
-            }
+          {filteredTodoItems.map((item) => {
+            return (
+              <TodoItem
+                key={item.id}
+                item={item}
+                toggleDone={this._onToggleDone}
+              />
+            );
           })}
         </ul>
         <button onClick={() => this.setState({inputText: ''})}>
@@ -62,7 +57,8 @@ class App extends Component<Props, State> {
       </div>
     );
   }
-  _onSearchItem = (searchQuery: string) => {
+  _onChangeSearch = (event: any) => {
+    let searchQuery = event.target.value;
     this.setState({
       searchText: searchQuery,
     });
