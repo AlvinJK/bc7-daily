@@ -4,13 +4,13 @@ Bootcamp 7
 
 ## Content List
 
-| Day   | Links          | Day    | Links          | Day    | Links |
-| ----- | :------------: | ------ | :------------: | ------ | :---: |
-| DAY 1 | [Link](./day1) | DAY 6  |                | DAY 11 |       |
-| DAY 2 | [Link](./day2) | DAY 7  | [Link](./day7) | DAY 12 |       |
-| DAY 3 | [Link](./day3) | DAY 8  | [Link](./day8) | DAY 13 |       |
-| DAY 4 | [Link](./day4) | DAY 9  | [Link](./day9) | DAY 14 |       |
-| DAY 5 | [Link](./day5) | DAY 10 |                | DAY 15 |       |
+| Day   | Links          | Day    | Links           | Day    | Links |
+| ----- | :------------: | ------ | :-------------: | ------ | :---: |
+| DAY 1 | [Link](./day1) | DAY 6  |                 | DAY 11 |       |
+| DAY 2 | [Link](./day2) | DAY 7  | [Link](./day7)  | DAY 12 |       |
+| DAY 3 | [Link](./day3) | DAY 8  | [Link](./day8)  | DAY 13 |       |
+| DAY 4 | [Link](./day4) | DAY 9  | [Link](./day9)  | DAY 14 |       |
+| DAY 5 | [Link](./day5) | DAY 10 | [Link](./day10) | DAY 15 |       |
 
 | Day    | Links | Day    | Links | Day    | Links |
 | ------ | :---: | ------ | :---: | ------ | :---: |
