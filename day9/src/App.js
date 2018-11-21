@@ -73,6 +73,7 @@ class App extends Component<Props, State> {
           isDone: false,
         },
       ],
+      inputText: '',
     });
   };
   _onToggleDone = (id: string) => {
