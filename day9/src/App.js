@@ -11,12 +11,25 @@ class App extends Component<Props, State> {
     todoItems: [
       {id: '100', content: 'Buy Apples', isDone: false},
       {id: '120', content: 'Wash Car', isDone: false},
+      {id: '140', content: 'Do Laundry', isDone: false},
+      {id: '160', content: 'Teach Class', isDone: false},
     ],
     searchText: '',
     inputText: '',
+    selectedIndex: 0,
   };
+
+  componentDidMount() {
+    // Add an event listener to
+    document.addEventListener('keyup', this._onKeyUp);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup', this._onKeyUp);
+  }
+
   render() {
-    let {todoItems, searchText} = this.state;
+    let {todoItems, searchText, selectedIndex} = this.state;
 
     let lcSearchText = searchText.toString().toLowerCase();
     let filteredTodoItems = todoItems.filter((item) => {
@@ -33,12 +46,13 @@ class App extends Component<Props, State> {
           value={searchText}
           onChange={this._onChangeSearch}
         />
-        <ul>
-          {filteredTodoItems.map((item) => {
+        <ul style={{listStyle: 'none', padding: 0}}>
+          {filteredTodoItems.map((item, index) => {
             return (
               <TodoItem
                 key={item.id}
                 item={item}
+                isSelected={index === selectedIndex}
                 toggleDone={this._onToggleDone}
               />
             );
@@ -57,24 +71,50 @@ class App extends Component<Props, State> {
       </div>
     );
   }
-  _onChangeSearch = (event: any) => {
-    let searchQuery = event.target.value;
+
+  _onKeyUp = (event: KeyboardEvent) => {
+    let {selectedIndex, todoItems} = this.state;
+    let maxIndex = todoItems.length - 1;
+    let key = event.key;
+    console.log(key);
+    if (key === 'ArrowUp' && document.activeElement === document.body) {
+      this.setState({
+        selectedIndex: selectedIndex > 0 ? selectedIndex - 1 : selectedIndex,
+      });
+    }
+    if (key === 'ArrowDown' && document.activeElement === document.body) {
+      this.setState({
+        selectedIndex:
+          selectedIndex < maxIndex ? selectedIndex + 1 : selectedIndex,
+      });
+    }
+    if (key === ' ' && document.activeElement === document.body) {
+      this._onToggleDone(todoItems[selectedIndex].id);
+    }
+  };
+
+  _onChangeSearch = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    let input = event.currentTarget;
     this.setState({
-      searchText: searchQuery,
+      searchText: input.value,
+      selectedIndex: 0,
     });
   };
   _onAddItem = () => {
-    this.setState({
-      todoItems: [
-        ...this.state.todoItems,
-        {
-          id: Math.random().toString(),
-          content: this.state.inputText,
-          isDone: false,
-        },
-      ],
-      inputText: '',
-    });
+    let {inputText} = this.state;
+    if (inputText.trim() !== '') {
+      this.setState({
+        todoItems: [
+          ...this.state.todoItems,
+          {
+            id: Math.random().toString(),
+            content: inputText,
+            isDone: false,
+          },
+        ],
+        inputText: '',
+      });
+    }
   };
   _onToggleDone = (id: string) => {
     let newTodoItems = this.state.todoItems.map((item) =>

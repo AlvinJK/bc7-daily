@@ -3,10 +3,32 @@ import React from 'react';
 type Props = {
   item: Object,
   toggleDone: (id: string) => void,
+  isSelected: boolean,
+};
+
+const commonStyle = {
+  margin: 0,
+  padding: 3,
+};
+
+const unselectedStyle = {
+  ...commonStyle,
+  backgroundColor: 'transparent',
+  color: 'black',
+};
+
+const selectedStyle = {
+  backgroundColor: '#008000',
+  color: 'white',
 };
 
 export default function TodoItem(props: Props) {
-  let {toggleDone, item} = props;
+  let {toggleDone, item, isSelected} = props;
   let content = item.isDone ? <s>{item.content}</s> : item.content;
-  return <li onClick={() => toggleDone(item.id)}>{content}</li>;
+  let style = isSelected ? selectedStyle : unselectedStyle;
+  return (
+    <li style={style} onClick={() => toggleDone(item.id)}>
+      {content}
+    </li>
+  );
 }
