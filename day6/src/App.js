@@ -92,16 +92,21 @@ class App extends Component<Props, State> {
             flexBasis: '0',
             textAlign: 'center',
             padding: '20px 10px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
+          <span style={{flexGrow: '1', flexBasis: '0'}}>New Todo :</span>
           <input
-            style={{flexGrow: '1', flexBasis: '0'}}
+            style={{flexGrow: '5', flexBasis: '0', margin: '0 10px'}}
             type="text"
             value={this.state.inputText}
             onChange={(event) => this._onInputChange(event.target.value)}
           />
           <button
-            style={{flexGrow: '1', flexBasis: '0'}}
+            style={{flexGrow: '1', flexBasis: '0', margin: '0 10px'}}
             onClick={(event) => this._addNewItem()}
           >
             Save
