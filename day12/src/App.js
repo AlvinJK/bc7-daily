@@ -17,12 +17,11 @@ export default class App extends Component<Props, State> {
   };
   constructor() {
     super();
-    console.log('App Started');
+  }
+  componentDidMount() {
     this._getRepoList();
-    console.log('Finish Constructing');
   }
   _getRepoList = () => {
-    console.log('Initiate fetch of repositories');
     let url = 'https://api.github.com/orgs/kodefox/repos';
     let response = fetch(url);
 
