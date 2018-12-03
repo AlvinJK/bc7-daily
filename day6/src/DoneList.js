@@ -18,8 +18,7 @@ export default function DoneList(props: Props) {
   return (
     <div
       style={{
-        flexGrow: 1,
-        flexBasis: 0,
+        flex: 1,
         backgroundColor: '#8FBC8F',
         color: '#FFF',
       }}

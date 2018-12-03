@@ -18,8 +18,7 @@ export default function TodoList(props: Props) {
   return (
     <div
       style={{
-        flexGrow: 1,
-        flexBasis: 0,
+        flex: 1,
         backgroundColor: '#FF4500',
         color: '#FFF',
       }}

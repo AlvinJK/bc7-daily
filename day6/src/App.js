@@ -64,7 +64,7 @@ class App extends Component<Props, State> {
           width: '100%',
         }}
       >
-        <header style={{flexGrow: 1, flexBasis: 0}}>
+        <header style={{flex: 1}}>
           <h1
             style={{
               margin: '0 auto 10px',
@@ -77,8 +77,7 @@ class App extends Component<Props, State> {
         </header>
         <div
           style={{
-            flexGrow: 4,
-            flexBasis: 0,
+            flex: 4,
             display: 'flex',
             justifyContent: 'space-around',
           }}
@@ -88,8 +87,7 @@ class App extends Component<Props, State> {
         </div>
         <div
           style={{
-            flexGrow: '1',
-            flexBasis: '0',
+            flex: '1',
             textAlign: 'center',
             padding: '20px 10px',
             display: 'flex',
