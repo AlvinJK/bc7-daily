@@ -86,54 +86,53 @@ class App extends Component<Props, State> {
       </div>
     );
   }
-  _onSearchChange = (event) => {
+  _onSearchChange = (event: Object) => {
     this.setState({searchText: event.target.value});
   };
-  _fetchRepositories = () => {
+  _fetchRepositories = async () => {
     let {searchText} = this.state;
     let url = `https://api.github.com/orgs/${searchText}/repos`;
     let orgResp = getOrganization(searchText);
     let response = getRepositories(url);
     this.setState({isFetching: true});
-    Promise.all([orgResp, response])
-      .then(([orgData, repositories]) => {
-        if (orgData != null) {
-          this.setState({
-            orgData: {
-              email: orgData.email,
-              publicRepos: orgData.public_repos,
-            },
-            organization: orgData.name,
-          });
-          let tempList = [];
-          if (repositories != null) {
-            for (let repo of repositories) {
-              tempList.push({
-                id: repo.id,
-                link: repo.html_url,
-                name: repo.name,
-                subCount: repo.watchers_count,
-              });
-            }
-            this.setState({
-              repoList: [...tempList],
-              searchText: '',
-              isFetching: false,
-              hasError: false,
+    try {
+      let [orgData, repositories] = await Promise.all([orgResp, response]);
+      if (orgData != null) {
+        this.setState({
+          orgData: {
+            email: orgData.email,
+            publicRepos: orgData.public_repos,
+          },
+          organization: orgData.name,
+        });
+        let tempList = [];
+        if (repositories != null) {
+          for (let repo of repositories) {
+            tempList.push({
+              id: repo.id,
+              link: repo.html_url,
+              name: repo.name,
+              subCount: repo.watchers_count,
             });
           }
+          this.setState({
+            repoList: [...tempList],
+            searchText: '',
+            isFetching: false,
+            hasError: false,
+          });
         }
-      })
-      .catch((error) => {
-        this.setState({
-          organization: '',
-          repoList: [],
-          searchText: '',
-          isFetching: false,
-          orgData: {},
-          hasError: true,
-        });
+      }
+    } catch (error) {
+      this.setState({
+        organization: '',
+        repoList: [],
+        searchText: '',
+        isFetching: false,
+        orgData: {},
+        hasError: true,
       });
+    }
   };
 }
 
