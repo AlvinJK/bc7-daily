@@ -1,10 +1,11 @@
 // @flow
 import {StyleSheet} from 'react-native';
+import {Constants} from 'expo';
 
 export default StyleSheet.create({
   mainContainer: {
     backgroundColor: '#fff',
-    marginTop: 25,
+    marginTop: Constants.statusBarHeight,
     height: '100%',
     width: '100%',
   },
