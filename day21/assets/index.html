@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Day 21</title>
+  </head>
+  <body>
+    <form><input type="file" id="file_to_upload" name="img_file" /></form>
+    <script>
+      let fileInput = document.getElementById('file_to_upload');
+      fileInput.addEventListener('change', (e) => {
+        let file = e.target.files[0];
+        uploadFile(file);
+      });
+      async function uploadFile(file) {
+        let response = await fetch('/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': file.type,
+          },
+          body: file,
+        });
+        response.json().then((result) => {
+          console.log(result);
+        });
+      }
+    </script>
+  </body>
+</html>
