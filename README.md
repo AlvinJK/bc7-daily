@@ -16,6 +16,6 @@ Bootcamp 7
 | ------ | :-------------: | ------ | :-------------: | ------ | :---: |
 | DAY 16 | [Link](./day16) | DAY 21 | [Link](./day21) | DAY 26 |       |
 | DAY 17 |                 | DAY 22 | [Link](./day22) | DAY 27 |       |
-| DAY 18 | [Link](./day18) | DAY 23 |                 | DAY 28 |       |
+| DAY 18 | [Link](./day18) | DAY 23 | [Link](./day23) | DAY 28 |       |
 | DAY 19 |                 | DAY 24 |                 | DAY 29 |       |
 | DAY 20 | [Link](./day20) | DAY 25 |                 | DAY 30 |       |

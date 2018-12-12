@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSON PARSER</title>
+    <style>
+      html,
+      body {
+        display: flex;
+        height: 100%;
+        width: 100%;
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+      }
+      .row.product-container {
+        flex: 5;
+      }
+      #form {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .product-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+      }
+      .product-list li {
+        padding: 0;
+        flex: 1;
+      }
+      .msg-block {
+        display: block;
+        padding: 10px;
+      }
+      .footer {
+        flex: 5;
+        background-color: #212121;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form id="form">
+          <input type="text" name="product_name" placeholder="Product Name" />
+          <input type="text" name="brand" placeholder="Brand" />
+          <input type="text" name="shop" placeholder="Shop" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="row product-container">
+        <ul class="product-list" id="productList"></ul>
+      </div>
+    </div>
+  </body>
+</html>
