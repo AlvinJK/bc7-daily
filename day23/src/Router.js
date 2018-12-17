@@ -15,18 +15,19 @@ export default class Router {
     if (this.routes.has(pattern)) {
       return new Error('This pattern is registered before');
     } else {
-      let startPath = this._parseParam(pattern);
-      let routeItem: RouteItem = {
-        hasParam: false,
-        startPath: pattern,
-        handler: handler,
-      };
-      if (startPath !== pattern) {
-        // No Param
+      let routeItem: RouteItem;
+      if (pattern.includes(':')) {
+        let startPath = this._parseParam(pattern);
         routeItem = {
-          ...routeItem,
-          hasParam: true,
+          hasParam: false,
           startPath: startPath,
+          handler: handler,
+        };
+      } else {
+        routeItem = {
+          hasParam: true,
+          startPath: pattern,
+          handler: handler,
         };
       }
       this.routes.set(pattern, routeItem);
@@ -62,7 +63,7 @@ export default class Router {
   };
 
   _parseParam = (pattern: string) => {
-    let parts = pattern.split('/');
+    let parts = pattern.slice(1).split('/');
     let returnValue = '/';
 
     for (let str of parts) {

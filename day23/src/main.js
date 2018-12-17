@@ -10,6 +10,9 @@ let routerPromise = new Promise((resolve, reject) => {
   router.addRoute('/', ({request, response}) => {
     serveHtml(response, 'index.html');
   });
+  router.addRoute('/foo', ({request, response}) => {
+    serveHtml(response, 'index.html');
+  });
   router.addRoute('/files/:fileName', ({request, response}, fileName) => {
     serveFile(response, fileName);
   });
