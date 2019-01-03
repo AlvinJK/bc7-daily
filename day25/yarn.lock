@@ -1823,7 +1823,7 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.11.0:
+commander@^2.11.0, commander@^2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
   integrity sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
@@ -2111,6 +2111,11 @@ currently-unhandled@^0.4.1:
   integrity sha1-mI3zP+qxke95mmE2nddsF635V+o=
   dependencies:
     array-find-index "^1.0.1"
+
+custom-error-instance@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/custom-error-instance/-/custom-error-instance-2.1.1.tgz#3cf6391487a6629a6247eb0ca0ce00081b7e361a"
+  integrity sha1-PPY5FIemYppiR+sMoM4ACBt+Nho=
 
 d@1:
   version "1.0.0"
@@ -4921,6 +4926,11 @@ leven@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-2.1.0.tgz#c2e7a9f772094dee9d34202ae8acce4687875580"
   integrity sha1-wuep93IJTe6dNCAq6KzORoeHVYA=
+
+levenshtein-edit-distance@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/levenshtein-edit-distance/-/levenshtein-edit-distance-2.0.3.tgz#30b8d8b9ad94eabd4f8a9f5a10e2fd1f28c84bee"
+  integrity sha512-m/SHpXjfKnArO8E9/o5Fd5+N4TLHU/72+zk4s7OpowBGmZK5MqAsuQ0xuYDftIyXyfqU99dmeMfpujWxo8FIJg==
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
@@ -7864,6 +7874,17 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+validated@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/validated/-/validated-2.0.1.tgz#d1a955df32426682361046cabeb7e5718c0006a2"
+  integrity sha512-3Aj72BVIxo2psvV97U6Z+a/1YFqz9Oid6Vk/73ur8QOzBQNOqIu4w/0DD86C/2itguQOQ7tWFsYb44TqvRSftg==
+  dependencies:
+    commander "^2.19.0"
+    custom-error-instance "^2.1.1"
+    indent-string "^3.2.0"
+    invariant "^2.2.4"
+    levenshtein-edit-distance "^2.0.2"
 
 vary@~1.1.2:
   version "1.1.2"

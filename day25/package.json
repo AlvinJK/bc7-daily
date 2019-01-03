@@ -17,7 +17,8 @@
     "class-autobind": "^0.1.4",
     "classnames": "^2.2.6",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "validated": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
