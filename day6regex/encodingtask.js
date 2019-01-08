@@ -3,7 +3,7 @@ function hexify(string) {
   let replaceWith = '?'.charCodeAt(0).toString(16);
   for (let i = 0; i < string.length; i++) {
     let code = string.charCodeAt(i);
-    if (code > 128) {
+    if (code > 127) {
       result = result + replaceWith;
     } else {
       result = result + code.toString(16);
