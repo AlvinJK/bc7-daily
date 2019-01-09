@@ -2,11 +2,11 @@
 Create Regex to match URLs inside a string
  */
 
-let regex = /http[s]{0,1}:\/\/[\w\-\.\/]+[:[\d]{0,5}]{0,1}[#[\w\-\.]+]{0,1}/gi;
+let regex = /http[s]?:\/\/[\w\-\.\/]+(:[\d]{0,5})?(#[\w\-\.]+)?/gi;
 
 let string = `visit http://google.com to search stuffs 
   or https://youtube.com to watch videos from around the world. 
-  Visit https://quip.com/hEOPA9C2CZob/Training-v7 to get the syllabus of react bootcampt training`;
+  Visit https://quip.com/***********/Training-v7 to get the syllabus of react bootcampt training`;
 
 let result = string.match(regex);
 console.log(result);
